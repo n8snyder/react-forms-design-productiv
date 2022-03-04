@@ -13,9 +13,12 @@ import TodoForm from "./TodoForm";
  */
 
 function EditableTodo({ todo, update, remove }) {
+  const [showTodo, setShowTodo] = useState(true);
 
   /** Toggle if this is being edited */
-  function toggleEdit() { }
+  function toggleEdit() {
+    setShowTodo(!showTodo);
+  }
 
   /** Call remove fn passed to this. */
   function handleDelete() {
@@ -23,32 +26,34 @@ function EditableTodo({ todo, update, remove }) {
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
-  function handleSave(formData) { }
+  function handleSave(formData) {
+    update(formData);
+  }
 
   return (
     <div className="EditableTodo">
 
-      EITHER
-
-      <TodoForm />
-
-      OR
-
-      <div className="mb-3">
-        <div className="float-end text-sm-end">
-          <button
-            className="EditableTodo-toggle btn-link btn btn-sm"
-            onClick={toggleEdit}>
-            Edit
-          </button>
-          <button
-            className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
-            onClick={handleDelete}>
-            Del
-          </button>
+      {showTodo &&
+        <div className="mb-3">
+          <div className="float-end text-sm-end">
+            <button
+              className="EditableTodo-toggle btn-link btn btn-sm"
+              onClick={toggleEdit}>
+              Edit
+            </button>
+            <button
+              className="EditableTodo-delBtn btn-link btn btn-sm text-danger"
+              onClick={handleDelete}>
+              Del
+            </button>
+          </div>
+          <Todo />
         </div>
-        <Todo />
-      </div>
+      }
+
+      {!showTodo &&
+        <TodoForm handleSave={handleSave} initialFormData={todo} />
+      }
 
     </div>
   );
