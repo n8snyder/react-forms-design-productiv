@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 
@@ -8,6 +8,9 @@ import TodoForm from "./TodoForm";
  * - todo
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
+ * 
+ * State
+ * - showTodo: boolean used for displaying todo or edit form
  *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
@@ -27,6 +30,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
+    toggleEdit();
     update(formData);
   }
 
@@ -46,7 +50,7 @@ function EditableTodo({ todo, update, remove }) {
               Del
             </button>
           </div>
-          <Todo todo={todo}/>
+          <Todo todo={todo} />
         </div>
       }
 
