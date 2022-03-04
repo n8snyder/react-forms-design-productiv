@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 import TopTodo from "./TopTodo";
+import TodoForm from "./TodoForm";
 import EditableTodoList from "./EditableTodoList";
 
 /** App for managing a todo list.
@@ -51,12 +52,12 @@ function TodoApp({ initialTodos }) {
           (if no top todo, omit this whole section)
           <section className="mb-4">
             <h3>Top Todo</h3>
-            <TopTodo />
+            <TopTodo todos={todos}/>
           </section>
 
           <section>
             <h3 className="mb-3">Add Nü</h3>
-            FIXME
+            <TodoForm handleSave={create}/>
           </section>
         </div>
 
