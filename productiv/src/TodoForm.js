@@ -32,7 +32,7 @@ function TodoForm({ handleSave, initialFormData =
   }
 
   return (
-    <form className="NewTodoForm" onSubmit={handleSubmit}>
+    <form className="TodoForm" onSubmit={handleSubmit}>
 
       <div className="mb-3">
         <input

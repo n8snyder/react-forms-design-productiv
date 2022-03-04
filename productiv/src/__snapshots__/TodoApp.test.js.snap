@@ -27,7 +27,7 @@ exports[`TodoApp snapshot 1`] = `
             Add Nü
           </h3>
           <form
-            class="NewTodoForm"
+            class="TodoForm"
           >
             <div
               class="mb-3"
