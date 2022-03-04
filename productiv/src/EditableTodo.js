@@ -32,7 +32,6 @@ function EditableTodo({ todo, update, remove }) {
 
   return (
     <div className="EditableTodo">
-
       {showTodo &&
         <div className="mb-3">
           <div className="float-end text-sm-end">
@@ -47,14 +46,13 @@ function EditableTodo({ todo, update, remove }) {
               Del
             </button>
           </div>
-          <Todo />
+          <Todo todo={todo}/>
         </div>
       }
 
       {!showTodo &&
         <TodoForm handleSave={handleSave} initialFormData={todo} />
       }
-
     </div>
   );
 }

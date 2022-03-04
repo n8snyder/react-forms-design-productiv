@@ -18,10 +18,11 @@ import EditableTodoList from "./EditableTodoList";
 
 function TodoApp({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos);
+  console.log('TODOS!!!!!!!', todos);
 
   /** add a new todo to list */
   function create(newTodo) {
-    setTodos([...todos, newTodo])
+    setTodos([...todos, {...newTodo, id:uuid()}])
   }
 
   /** update a todo with updatedTodo */
@@ -36,29 +37,22 @@ function TodoApp({ initialTodos }) {
     setTodos(todos.filter(t => t.id !== id));
   }
 
-  const editableTodosHTML = todos.length > 0
-    ? <EditableTodoList todos={todos} update={update} remove={remove} />
-    : <span className="text-muted">You have no todos.</span>
-
-  const topTodoHTML = todos.length > 0
-    ? (
-      <section className="mb-4">
-        <h3>Top Todo</h3>
-        <TopTodo todos={todos} />
-      </section>
-    )
-    : "";
-
   return (
     <main className="TodoApp">
       <div className="row">
 
         <div className="col-md-6">
-          {editableTodosHTML}
+          {todos.length > 0 && 
+            <EditableTodoList todos={todos} update={update} remove={remove} />}
+          {todos.length === 0 && <span className="text-muted">You have no todos.</span>}
         </div>
 
         <div className="col-md-6">
-          {topTodoHTML}
+          {todos.length > 0 &&       
+            <section className="mb-4">
+              <h3>Top Todo</h3>
+              <TopTodo todos={todos} />
+            </section>}
           <section>
             <h3 className="mb-3">Add Nü</h3>
             <TodoForm handleSave={create} />
