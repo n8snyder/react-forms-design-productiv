@@ -35,7 +35,7 @@ exports[`TodoApp snapshot 1`] = `
               <input
                 aria-label="Title"
                 class="form-control"
-                id="newTodo-title"
+                id="TodoForm-title"
                 name="title"
                 placeholder="Title"
                 value=""
@@ -47,7 +47,7 @@ exports[`TodoApp snapshot 1`] = `
               <textarea
                 aria-label="Description"
                 class="form-control"
-                id="newTodo-description"
+                id="TodoForm-description"
                 name="description"
                 placeholder="Description"
               />
@@ -66,7 +66,7 @@ exports[`TodoApp snapshot 1`] = `
                 </label>
                 <select
                   class="form-control form-control-sm d-inline-flex"
-                  id="newTodo-priority"
+                  id="TodoForm-priority"
                   name="priority"
                 >
                   <option

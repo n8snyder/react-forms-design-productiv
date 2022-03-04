@@ -36,7 +36,7 @@ function TodoForm({ handleSave, initialFormData =
 
       <div className="mb-3">
         <input
-          id="newTodo-title"
+          id="TodoForm-title"
           name="title"
           className="form-control"
           placeholder="Title"
@@ -48,7 +48,7 @@ function TodoForm({ handleSave, initialFormData =
 
       <div className="mb-3">
         <textarea
-          id="newTodo-description"
+          id="TodoForm-description"
           name="description"
           className="form-control"
           placeholder="Description"
@@ -63,7 +63,7 @@ function TodoForm({ handleSave, initialFormData =
           <label htmlFor="newTodo-priority"
             className="d-inline-flex">Priority:&nbsp;&nbsp;
           </label>
-          <select id="newTodo-priority"
+          <select id="TodoForm-priority"
             name="priority"
             value={formData.priority}
             onChange={handleChange}
